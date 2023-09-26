@@ -36,6 +36,12 @@ public class Job {
     //  match.
 
     @Override
+    public String toString() {
+        String newLine = System.lineSeparator();
+        return newLine + "ID: " + id + newLine + "Name: " + name + newLine + "Employer: " + employer + newLine + "Location: " + location + newLine + "Position Type: " + positionType + newLine + "Core Competency: " + coreCompetency + newLine;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

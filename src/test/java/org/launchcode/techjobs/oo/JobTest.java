@@ -33,4 +33,32 @@ public class JobTest {
         Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(job4.getId() == job5.getId());
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job6 = new Job();
+        String line = System.lineSeparator();
+        String expected = line;
+        String actual = String.valueOf(job6.toString().charAt(0));
+        assertEquals(expected, actual);
+
+        int stringEnd = job6.toString().length();
+        String actualTwo = String.valueOf(job6.toString().charAt(stringEnd-1));
+        assertEquals(expected, actualTwo);
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String line = System.lineSeparator();
+        String expected = line + "ID: " + job7.getId() + line + "Name: " + "Product tester" + line + "Employer: " + "ACME" + line + "Location: " + "Desert" + line + "Position Type: " + "Quality control" + line + "Core Competency: " + "Persistence" + line;
+        String actual = job7.toString();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+
+    }
 }
