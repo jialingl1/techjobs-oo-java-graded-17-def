@@ -38,7 +38,14 @@ public class Job {
     @Override
     public String toString() {
         String newLine = System.lineSeparator();
-        return newLine + "ID: " + id + newLine + "Name: " + name + newLine + "Employer: " + employer + newLine + "Location: " + location + newLine + "Position Type: " + positionType + newLine + "Core Competency: " + coreCompetency + newLine;
+        String nullMessage = "Data not available";
+        return newLine +
+                "ID: " + id + newLine +
+                "Name: " + (name.isEmpty() ? nullMessage : name) + newLine +
+                "Employer: " + (employer.getValue().isEmpty() ? nullMessage : employer) + newLine +
+                "Location: " + (location.getValue().isEmpty() ? nullMessage : location) + newLine +
+                "Position Type: " + (positionType.getValue().isEmpty() ? nullMessage : positionType) + newLine +
+                "Core Competency: " + (coreCompetency.getValue().isEmpty() ? nullMessage : coreCompetency) + newLine;
     }
 
     @Override

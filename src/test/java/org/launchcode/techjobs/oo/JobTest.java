@@ -36,7 +36,7 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job6 = new Job();
+        Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String line = System.lineSeparator();
         String expected = line;
         String actual = String.valueOf(job6.toString().charAt(0));
@@ -59,6 +59,11 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
+        Job job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        String line = System.lineSeparator();
+        String expected = line + "ID: " + job8.getId() + line + "Name: " + "Data not available" + line + "Employer: " + "Data not available" + line + "Location: " + "Data not available" + line + "Position Type: " + "Data not available" + line + "Core Competency: " + "Data not available" + line;
+        String actual = job8.toString();
+        assertEquals(expected, actual);
 
     }
 }
